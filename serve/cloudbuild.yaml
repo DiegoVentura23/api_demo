@@ -8,3 +8,18 @@ steps:
     id: 'Push app image'
     entrypoint: docker
     args: ["push", "europe-west1-docker.pkg.dev/$PROJECT_ID/models/model-iris", "--all-tags"]
+
+
+    name: 'grc.io/cloud-builder/gcloud'
+    id: 'Deploy to Cloud Run'
+    entrypoint: gcloud
+    args: [
+      'run',
+      'deploy',
+      'model-iris',
+      '--image=europe-west1-docker.pkg.dev/$PROJECT_ID/models/model-iris:latest',
+      '--allow-unauthenticated',
+      '--port=8080',
+      '--region=europe-west1',
+      '--project=$PROJECT_ID'
+    ]
