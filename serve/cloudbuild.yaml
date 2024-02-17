@@ -1,11 +1,11 @@
 steps: 
   - name: 'gcr.io/cloud-builders/docker'
-     id : 'Build app image'
-     entrypoint: docker 
-     args : ["build", "-t", "europe-west1-docker.pkg.dev/$PROJECT_ID/models/model-iris:latest","-f", "serve/Dockerfile", "."]
+    id : 'Build app image'
+    entrypoint: docker 
+    args : ["build", "-t", "europe-west1-docker.pkg.dev/$PROJECT_ID/models/model-iris:latest","-f", "serve/Dockerfile", "."]
 
 
   - name:  'gcr'.io/cloud-builders/docker'
-     id : 'Push app image'
-     entrypoint: docker
-     args: ["push", "europe-west-docker.pkg.dev/$PROJECT_ID/"models/model-iris", "--all--tags"]
+    id : 'Push app image'
+    entrypoint: docker
+    args: ["push", "europe-west-docker.pkg.dev/$PROJECT_ID/"models/model-iris", "--all--tags"]
