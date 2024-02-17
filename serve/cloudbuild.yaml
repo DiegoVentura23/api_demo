@@ -10,7 +10,7 @@ steps:
     args: ["push", "europe-west1-docker.pkg.dev/$PROJECT_ID/models/model-iris", "--all-tags"]
 
 
-  - name: 'gcr.io/cloud-builder/gcloud'
+  - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Deploy to Cloud Run'
     entrypoint: gcloud
     args: [
